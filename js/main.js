@@ -32,7 +32,7 @@ $(document).ready(function(){
 	$('.start').on('click', function(){
 		if(isNew) {
 			$('h1').countdown({until: +Number($workDisplay.text()), format: 'MS', compact: true, onExpiry: workFinish});
-			isNew = false;		
+			isNew = false;	
 		} else {
 			$('h1').countdown('resume');
 		}
@@ -47,8 +47,12 @@ $(document).ready(function(){
 	});
 
 	function workFinish(){
-		alert('finish');
+		
+		audio.play();
 		isNew = true;
+	}
+	function play(){
+		var audio = document.getElementById("myAudio");
 	}
 	
 });
