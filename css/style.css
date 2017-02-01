@@ -1,7 +1,118 @@
+/*
+background: #D2CBCB;
+letters: #212D40;
+red: #FF6663;
+dark red: #CC514F;
+green: #588B8B;
+dark green: #466F6F;
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+}
+
 body {
-	background: #4A4A4A;
+	background: #D2CBCB;
 }
 
 .container {
-	margin: 0 5px;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 }
+
+.pomodoro {
+	margin-top: 50px;
+	margin-bottom: 25px;
+}
+
+.work, .break {
+	display: inline-block;
+	width: 40%;
+	margin: 0 3% 25px 3%;
+	padding: 10px;
+	text-align: center;
+}
+
+.work {
+	background: #FF6663;
+	color: #212D40;
+}
+
+.break {
+	background: #588B8B;
+	color: #212D40;
+}
+
+.working {
+	background: #FF6663;
+	color: #212D40;
+}
+
+.breaking {
+	background: #588B8B;
+	color: #212D40;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.work-display, .break-display {
+	display: inline;
+}
+
+.minus, .plus {
+	border: none;
+	background: none;
+	padding: 10px 15px;
+	border-radius: 50%;
+}
+
+.work .minus:hover, .work .plus:hover {
+	background: #CC514F;
+	color: white;
+}
+
+.break .minus:hover, .break .plus:hover {
+	background: #466F6F;
+	color: white;
+}
+
+.start, .pause, .reset {
+	
+}
+
+/* ----- Media Queries ----- */
+@media screen and (min-width: 375px){
+	.container {
+		width: 50%;
+	}
+}
+@media screen and (min-width: 414px){
+	.container {
+		width: 50%;
+	}
+}
+@media screen and (min-width: 768px){
+	.container {
+		width: 50%;
+	}
+}
+@media screen and (min-width: 1024px){
+	.container {
+		width: 50%;
+	}
+}
+@media screen and (min-width: 1366px){
+	.container {
+		width: 50%;
+	}
+}
+
+
+//add how many sessions of pomodoro

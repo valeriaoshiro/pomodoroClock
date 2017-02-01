@@ -7,11 +7,15 @@ $(document).ready(function(){
 	function workStart(){
 		$('h1').countdown('destroy');
 		$('h1').countdown({until: +Number($workDisplay.text()), format: 'MS', compact: true, onExpiry: workFinish});
+		$('h1').addClass('working');
+		$('h1').removeClass('breaking');
 		isNew = false;
 	}
 	function breakStart(){
 		$('h1').countdown('destroy');
 		$('h1').countdown({until: +Number($breakDisplay.text()), format: 'MS', compact: true, onExpiry: breakFinish});
+		$('h1').addClass('breaking');
+		$('h1').removeClass('working');
 		isNew = false;
 	}
 	function workFinish(){
@@ -84,6 +88,10 @@ $(document).ready(function(){
 		workStart();
 		$('h1').countdown('pause');
 	});	
+
+
+	workStart();
+	$('h1').countdown('pause');
 });
 
 // +Number($workDisplay.text())+'m'
