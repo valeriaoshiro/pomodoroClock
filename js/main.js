@@ -1,19 +1,21 @@
 $(document).ready(function(){
 	var $breakDisplay = $('.break-display');
 	var $workDisplay = $('.work-display');
+	var $countDisplay = $('.count');
 	var isNew = true;
 	var isWork = true;
+	var count = 0;
 
 	function workStart(){
 		$('h1').countdown('destroy');
-		$('h1').countdown({until: +Number($workDisplay.text()), format: 'MS', compact: true, onExpiry: workFinish});
+		$('h1').countdown({until: +Number($workDisplay.text())+'m', format: 'MS', compact: true, onExpiry: workFinish});
 		$('h1').addClass('working');
 		$('h1').removeClass('breaking');
 		isNew = false;
 	}
 	function breakStart(){
 		$('h1').countdown('destroy');
-		$('h1').countdown({until: +Number($breakDisplay.text()), format: 'MS', compact: true, onExpiry: breakFinish});
+		$('h1').countdown({until: +Number($breakDisplay.text())+'m', format: 'MS', compact: true, onExpiry: breakFinish});
 		$('h1').addClass('breaking');
 		$('h1').removeClass('working');
 		isNew = false;
@@ -22,6 +24,8 @@ $(document).ready(function(){
 		audio.play();
 		isNew = true;
 		isWork = !isWork;
+		count++;
+		$countDisplay.text(count);
 		console.log('isWork', isWork);
 		breakStart();
 	}
@@ -87,6 +91,8 @@ $(document).ready(function(){
 	$('.reset').on('click', function(){
 		workStart();
 		$('h1').countdown('pause');
+		count = 0;
+		$countDisplay.text(count);
 	});	
 
 

@@ -1,5 +1,6 @@
 /*
 background: #D2CBCB;
+dark gray: #A8A2A2;
 letters: #212D40;
 red: #FF6663;
 dark red: #CC514F;
@@ -22,19 +23,56 @@ body {
 	margin: 0 auto;
 	width: 100%;
 	text-align: center;
+	max-height: 100vh;
 }
 
+/* ----- Display Timer ----- */
 .pomodoro {
 	margin-top: 50px;
 	margin-bottom: 25px;
 }
 
+h1 {
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.working {
+	background: #D2CBCB;
+	color: #FF6663;
+}
+
+.breaking {
+	background: #D2CBCB;
+	color: #588B8B;
+}
+
+/* ----- Start, Pause, Reset Buttons ----- */
+.start, .pause, .reset {
+	margin: 0 5px;
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	background: #D2CBCB;
+	color: #212D40;
+	font-weight: bold;
+	font-size: 1.2em;
+	border: 1px solid #A8A2A2;
+}
+
+.start:hover, .pause:hover, .reset:hover {
+	background: #A8A2A2;
+	color: white;
+}
+
+/* ----- Work and Break Section ----- */
 .work, .break {
 	display: inline-block;
 	width: 40%;
-	margin: 0 3% 25px 3%;
+	margin: 25px 3% 25px 3%;
 	padding: 10px;
 	text-align: center;
+	border-radius: 10px;
 }
 
 .work {
@@ -47,29 +85,10 @@ body {
 	color: #212D40;
 }
 
-.working {
-	background: #FF6663;
-	color: #212D40;
-}
-
-.breaking {
-	background: #588B8B;
-	color: #212D40;
-}
-
-h1 {
-	text-align: center;
-	margin-bottom: 25px;
-}
-
-.work-display, .break-display {
-	display: inline;
-}
-
 .minus, .plus {
 	border: none;
 	background: none;
-	padding: 10px 15px;
+	padding: 7px 12px;
 	border-radius: 50%;
 }
 
@@ -83,29 +102,57 @@ h1 {
 	color: white;
 }
 
-.start, .pause, .reset {
-	
+.work-display, .break-display {
+	display: inline;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 /* ----- Media Queries ----- */
-@media screen and (min-width: 375px){
-	.container {
-		width: 50%;
+
+@media screen and (orientation: landscape){
+	.pomodoro {
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+	h1 {
+		margin-bottom: 10px;
+		font-size: 1.3em;
+	}
+	.work, .break {
+		margin: 10px 3% 10px 3%;
+	}	
+	.minus, .plus {
+		padding: 5px 20px;
 	}
 }
+
 @media screen and (min-width: 414px){
-	.container {
-		width: 50%;
+	.minus, .plus {
+		font-size: 2em;
+		padding: 8px 15px;
 	}
+
 }
 @media screen and (min-width: 768px){
 	.container {
-		width: 50%;
+		width: 80%;
+	}
+	.pomodoro {
+		margin-bottom: 15px;
+	}
+	h1 {
+		font-size: 2em;
+		margin-bottom: 20px;
+	}
+	.work, .break {
+		margin: 25px 3% 35px 3%;
 	}
 }
-@media screen and (min-width: 1024px){
-	.container {
-		width: 50%;
+@media screen and (min-width: 768px) 
+	and (orientation: landscape) {
+	.pomodoro {
+		margin-top: 50px;
 	}
 }
 @media screen and (min-width: 1366px){
@@ -113,6 +160,8 @@ h1 {
 		width: 50%;
 	}
 }
-
-
-//add how many sessions of pomodoro
+@media screen and (min-width: 1920px){
+	.container {
+		width: 40%;
+	}
+}
